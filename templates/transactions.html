@@ -1,0 +1,111 @@
+<section class="transactions">
+  <h2>Transactions</h2>
+
+  <!-- Form -->
+  <form class="transactions-form">
+    <label>
+      Category
+      <select id="txn-category">
+        <option value="">Select a category</option>
+        {% for category in categories %}
+        <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <label>
+      Amount
+      <input type="number" id="txn-amount" placeholder="0.00" min="0.01" step="0.01">
+    </label>
+
+    <label>
+      Description
+      <input type="text" id="txn-description" placeholder="e.g. Groceries">
+    </label>
+
+    <label>
+      Date
+      <input type="date" id="txn-date">
+    </label>
+
+    <button id="txn-save" type="button">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </form>
+
+    <div class="txn-upload">
+      <select id="upload-txn-id">
+        <option value="">Select transaction</option>
+        {% for trans in transactions %}
+          <option value="{{ trans.id }}">
+            {{ trans.description or 'No description' }} ({{ trans.amount }})
+          </option>
+        {% endfor %}
+      </select>
+
+      <input type="file" id="receipt-file">
+      <button id="upload-receipt-btn">Upload</button>
+  </div>
+
+  <hr>
+
+  <!-- Search & Filter -->
+  <div class="txn-toolbar">
+    <label class="txn-search">
+      Search
+      <input type="text" id="txn-search" placeholder="Search transactions...">
+    </label>
+
+    <label class="txn-sort">
+      Sort by
+      <select id="txn-sort-field">
+        <option value="date">Date</option>
+        <option value="category">Category</option>
+        <option value="amount">Amount</option>
+      </select>
+    </label>
+
+    <label class="txn-sort">
+      Order
+      <select id="txn-sort-dir">
+        <option value="asc">Asc</option>
+        <option value="desc">Desc</option>
+      </select>
+    </label>
+    </div>
+
+    
+  <!-- Table -->
+  <table id="txn-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody id="txn-tbody">
+      {% for trans in transactions %}
+      <tr data-id="{{ trans.id }}">
+        <td>{{ trans.date }}</td>
+        <td>{{ trans.category_name or 'Uncategorized' }}</td>
+        <td>{{ trans.description or '—' }}</td>
+        <td class="amountcell-trans {{ 'income' if trans.type == 'income' else 'expense' }}"> <!--categorizes as income or expense-->
+          {{ '%.2f' % trans.amount }}
+        </td>
+        <td>
+          <button class="edit-txn">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+          <button class="delete-txn" data-id="{{ trans.id }}">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>

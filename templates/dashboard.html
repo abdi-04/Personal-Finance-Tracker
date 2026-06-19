@@ -1,0 +1,31 @@
+<section>
+  <div class="dashboard-header">
+    <h2>Dashboard</h2>
+    <br>
+    <h3>Total Transactions</h3>
+  </div>
+  <div class="dashboard-grid">
+    <div class="card" style="background-color: #d1fae5; border-color: #a7f3d0;">
+      <h3>Income</h3>
+      <p>{{ '%.2f' % income }}</p>
+    </div>
+    <div class="card" style="background-color: #fee2e2; border-color: #fecaca;">
+      <h3>Expense</h3>
+      <p>{{ '%.2f' % monthly_spending }}</p>
+    </div>
+    <div class="card" style="background-color: #dbeafe; border-color: #bfdbfe;">
+      <h3>Net</h3>
+      <p>{{ '%.2f' % net }}</p>
+    </div>
+  </div>
+
+<br>
+<div class="chart-controls">
+  <h3>Transactions per year</h3>
+  <br>
+    <select id="yearSelect"></select>
+</div>
+
+<canvas id="incomeExpenseChart"></canvas>
+
+</section>

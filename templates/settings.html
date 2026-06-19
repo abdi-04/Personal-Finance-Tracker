@@ -1,0 +1,60 @@
+<section>
+    <h2>Account</h2>
+
+    <div class="account-info" style="margin-top: 10px;">
+        <p>Name: {{ user.firstname }} {{ user.lastname }}</p>
+        <p>Email: {{ user.email }}</p>
+    </div>
+</section>
+
+<section>
+    <h2>Update Password</h2>
+
+    <div class="settings-form">
+        <label>
+            New Password
+            <input type="password" id="new-password">
+        </label>
+
+        <label>
+            Confirm Password
+            <input type="password" id="confirm-password">
+        </label>
+
+        <button id="update-password-btn">
+            Update Password
+        </button>
+    </div>
+</section>
+
+<section>
+    <h2>Uploads</h2>
+
+    <div class="uploads-list">
+
+        {% for upload in uploads %}
+            <div class="upload-item">
+                
+                <!-- Showing what the uploaded picture belongs to -->
+                <div class="upload-info">
+                    <strong>{{ upload.description or "No description" }}</strong><br>
+                    <small>
+                        {{ upload.category_name or "Uncategorized" }} • 
+                        {{ "%.2f" % (upload.amount) }} • 
+                        {{ upload.date }}
+                    </small>
+                </div>
+
+                <!--Open file in this route -->
+                <a href="{{ url_for('static', filename='uploads/' + upload.image) }}" target="_blank">
+                    <button>View</button>
+                </a>
+
+            </div>
+
+        {% else %}
+            <p>No receipts uploaded yet.</p>
+        {% endfor %}
+
+    </div>
+</section>

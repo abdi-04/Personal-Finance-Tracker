@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Finance Tracker{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/budget.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/transactions.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/goals.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/settings.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/dashboard-chart.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+</head>
+<body>
+    <header class="top-bar">
+        <h1 class="logo">Finance Tracker</h1>
+        <a href="{{ url_for('auth.logout') }}" class="logout btn">Logout</a>
+    </header>
+    <div class="page">
+        <nav class="side-bar" aria-label="Sidebar navigation">
+        <ul class="menu">
+            <li>
+            <a href="#dashboard" class="menu-item" data-section="dashboard">
+                <span>Dashboard</span>
+            </a>
+            </li>
+            <li>
+            <a href="#transactions" class="menu-item" data-section="transactions">
+                <span>Transactions</span>
+            </a>
+            </li>
+            <li>
+            <a href="#budget" class="menu-item" data-section="budget">
+                <span>Budget</span>
+            </a>
+            </li>
+            <li>
+            <a href="#goals" class="menu-item" data-section="goals">
+                <span>Goals</span>
+            </a>
+            </li>
+            <li>
+            <a href="#settings" class="menu-item" data-section="settings">
+                <span>Settings</span>
+            </a>
+            </li>
+        </ul>
+        </nav>
+        <main class="content">
+            {% block content %}{% endblock %}
+        </main>    
+    </div>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

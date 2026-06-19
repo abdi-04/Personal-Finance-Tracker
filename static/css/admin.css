@@ -1,0 +1,274 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f3f4f6;
+    color: #111827;
+}
+
+/* ── Topbar ── */
+
+.admin-topbar {
+    height: 80px;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-topbar h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    text-decoration: none;
+}
+
+.admin-logout {
+    text-decoration: none;
+    color: #111827;
+    border: 1px solid #d1d5db;
+    border-radius: 11px;
+    padding: 6px 14px;
+    font-weight: 500;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.admin-logout:hover {
+    background: #f9fafb;
+}
+
+/* ── Page layout ── */
+
+.admin-page {
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.admin-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 28px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.admin-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+
+}
+
+/* ── Table ── */
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    text-align: left;
+    font-size: 0.95rem;
+    color: #374151;
+    padding: 14px 16px;
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-table td {
+    padding: 18px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.admin-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ── Buttons ── */
+
+.delete-user,
+.delete-category-btn {
+    height: 38px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 10px;
+    background: #ef4444;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.delete-user:hover,
+.delete-category-btn:hover {
+    background: #dc2626;
+}
+
+.save-category-btn,
+.edit-category-btn {
+    height: 38px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.save-category-btn {
+    background: #2563eb;
+    color: #d1fae5;
+}
+
+.edit-category-btn {
+    background: #f59e0b;
+    color: #e0e7ff;
+}
+
+
+
+.save-category-btn:hover {
+    background: #1d4ed8;
+}
+
+.edit-category-btn:hover {
+    background: #d97706;
+}
+
+.cancel-category-btn {
+    height: 38px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 10px;
+    background: #6b7280;
+    color: #f3f4f6;
+    cursor: pointer;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cancel-category-btn:hover {
+    background: #4b5563;
+}
+
+.cat-actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+/* ── Category form ── */
+
+.category-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.category-input {
+    height: 40px;
+    padding: 0 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.category-input:focus {
+    border-color: #6366f1;
+}
+
+.category-select {
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.category-add-btn {
+    height: 40px;
+    padding: 0 18px;
+    background: #6366f1;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-add-btn:hover {
+    background: #4f46e5;
+}
+
+/* ── Type badge ── */
+
+.type-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    padding: 0 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.type-badge.expense {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.type-badge.income {
+    background: #dcfce7;
+    color: #047857;
+}
+
+/* ── Utility ── */
+
+.current-admin {
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.hidden {
+    display: none;
+}

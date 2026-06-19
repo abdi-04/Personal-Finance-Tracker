@@ -1,0 +1,67 @@
+<div class="goals">
+    <h2>Goals</h2>
+
+    <div class="goals-form">
+        <label>
+            Title
+            <input type="text" id="goals-title" placeholder="e.g holiday">
+        </label>
+
+        <label>
+            Target Amount
+            <input type="number" id="goals-amount" placeholder="0.00" min="0" step="0.01">
+        </label>
+
+        <button id="goals-save">
+            <i class="fa-solid fa-circle-plus"></i>
+        </button>
+    </div>
+
+    <hr>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Target Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody id="goals-tbody">
+            {% for goal in goals %}
+            <tr data-goal-id="{{ goal.id }}">
+                <td>
+                    <input type="text"
+                           class="goal-title-input"
+                           value="{{ goal.title }}"></td>
+
+                <td>
+                    <input type="number"
+                           class="goal-target-input"
+                           value="{{ '%.2f' % goal.target_amount }}">
+                </td>
+
+                <td>
+                    <select class="goal-status-select">
+                        <option value="active" {% if goal.status == "active" %}selected{% endif %}>
+                            Active
+                        </option>
+                        <option value="completed" {% if goal.status == "completed" %}selected{% endif %}>
+                            Completed
+                        </option>
+                    </select>
+
+                    <button class="edit-goal">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </button>
+                    <button class="delete-goal">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Admin – Finance Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="{{ url_for('static', filename='js/admin.js') }}" defer></script>
+</head>
+<body>
+
+    <header class="admin-topbar">
+        <h1>Finance Tracker</h1>
+        <a href="{{ url_for('auth.logout') }}" class="admin-logout">Logout</a>
+    </header>
+
+    <main class="admin-page">
+
+        <section class="admin-card">
+            <div class="admin-header">
+                <h2>User management</h2>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr data-user-id="{{ user.id }}"> <!--const userId = row.dataset.userId;-->
+                        <td>{{ user.firstname }} {{ user.lastname }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <button class="delete-user">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <section class="admin-card">
+            <div class="admin-header">
+                <h2>Category management</h2>
+            </div>
+            <div class="category-form">
+                <input
+                    type="text"
+                    id="newCategoryName"
+                    class="category-input"
+                    placeholder="Category name"
+                    maxlength="50"
+                />
+                <select id="newCategoryType" class="category-select">
+                    <option value="expense">Expense</option>
+                    <option value="income">Income</option>
+                </select>
+                <button id="addCategoryBtn" class="category-add-btn">
+                    <i class="fa-solid fa-plus"></i> Add category
+                </button>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="categoryTableBody">
+                    {% for cat in categories %}
+                    <tr data-category-id="{{ cat.id }}">
+                        <td>
+                            <span class="cat-display-name">{{ cat.name }}</span>
+                            <input class="category-input cat-edit-name hidden" value="{{ cat.name }}" maxlength="50" />
+                        </td>
+                        <td>
+                            <span class="cat-display-type">
+                                <span class="type-badge {{ cat.type }}">{{ cat.type }}</span>
+                            </span>
+                            <select class="category-select cat-edit-type hidden">
+                                <option value="expense" {% if cat.type == 'expense' %}selected{% endif %}>Expense</option>
+                                <option value="income" {% if cat.type == 'income' %}selected{% endif %}>Income</option>
+                            </select>
+                        </td>
+                        <td class="cat-actions">
+                            <button class="edit-category-btn">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </button>
+                            <button class="delete-category-btn">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+</body>
+</html>
