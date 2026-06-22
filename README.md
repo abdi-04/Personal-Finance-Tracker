@@ -32,8 +32,8 @@ Developed as part of **DAT130: Databases and Web Programming** at the **Universi
 
 ### Frontend
 
-* HTML5
-* CSS3
+* HTML
+* CSS
 * JavaScript
 
 ### Database
