@@ -46,38 +46,15 @@ Developed as part of **DAT130: Databases and Web Programming** at the **Universi
 
 ---
 
-## Screenshots
-
-Add screenshots of the application here.
-
-### Dashboard
-
-![Dashboard](screenshots/dashboard.png)
-
-### Expense Overview
-
-![Expense Overview](screenshots/expenses.png)
-
-### Analytics
-
-![Analytics](screenshots/analytics.png)
-
----
 
 ## Installation
 
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/FinanceTracker.git
-cd FinanceTracker
+git clone https://github.com/abdi-04/Personal-Finance-Tracker.git
 ```
 
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
 
 ### Run the Application
 
