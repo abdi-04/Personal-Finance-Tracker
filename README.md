@@ -1,103 +1,177 @@
-# Personal-Finance-Tracker
-A school project for the course databases and webprogramming
+# Personal Finance Tracker
 
-# Requirements Checklist
+A personal finance tracking web application built with Flask and MySQL. Users can manage expenses, monitor their financial activity, and visualize financial data through interactive charts and dashboards.
 
-## What to do first?
-
-1. Clone the repository to your local machine using the following command:
-
-
-2. Navigate to the project directory by using the given command and run the flask application:
-
-   ```bash
-   cd FinanceTracker
-   ```
-   
-
-
-
-## Each completed item is marked with x.
-
-
-| # | Criteria | Points | Done |
-|---|----------|--------|------|
-| 1 | Idea followed | 5 | x |
-| 2 | How to Run works | 3 | x |
-| 3 | Log in and register users | 5 | x |
-| 4 | Example data | 2 | x |
-| 5 | JS Form validation | 5 | x |
-| 6 | Sort and search in JS | 3 | x |
-| 7 | Sort stored | 3 | x |
-| 8 | >5 Tables | 6 | x |
-| 9 | Complex queries | 3 | x |
-| 10 | Insert, Update, delete data | 6 | x |
-| 11 | AJAX request used | 5 | x |
-| 12 | Dynamic layout | 2 | x |
-| 13 | Semantic tags | 2 | x |
-| 14 | Code separation | 4 | x |
-| 15 | Best practice routes | 5 | x |
-| 16 | Server side validation | 4 | x |
-| 17 | Errors handled and displayed | 5 | x |
-| 18 | Authentication | 4 | x |
-| 19 | Access control | 3 | x |
+Developed as part of **DAT130: Databases and Web Programming** at the **University of Stavanger**.
 
 ---
 
-## Extra Features
+## Features
 
+* User registration and authentication
+* Role-based access control
+* Expense and financial data management
+* Client-side and server-side validation
+* Search and sorting functionality
+* AJAX-powered dynamic updates
+* Responsive design for mobile devices
+* Interactive charts and data visualizations using Chart.js
+* Image upload and validation
+* MySQL database with multiple relational tables
+* Error handling and user feedback
 
-### CSS features
+---
 
-Phone-size responsive layout | 5 | x |
+## Tech Stack
 
-### JS features
+### Backend
 
-Additional AJAX beyond single request | JS | x |
-Display of graphs | JS | x |
+* Python
+* Flask
+* Flask-Login
 
-### Python features
+### Frontend
 
-| Flask-Login | Python | x |
-| Image storage and validation | Python | x |
+* HTML5
+* CSS3
+* JavaScript
 
+### Database
 
+* MySQL
+
+### Libraries
+
+* Chart.js
+
+---
+
+## Screenshots
+
+Add screenshots of the application here.
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Expense Overview
+
+![Expense Overview](screenshots/expenses.png)
+
+### Analytics
+
+![Analytics](screenshots/analytics.png)
+
+---
+
+## Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/FinanceTracker.git
+cd FinanceTracker
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Application
+
+```bash
+python app.py
+```
+
+The application will automatically:
+
+* Create the database if it does not already exist
+* Create all required tables
+* Insert example data through the seeding functions
+
+---
+
+## Demo Accounts
+
+### Administrator Account
+
+**Email:** `admin@financetracker.com`
+
+**Password:** `admin1234`
+
+### Demo User Account
+
+**Email:** `demo@financetracker.com`
+
+**Password:** `demo1234`
 
 ---
 
 
-## How to Run
 
-1. To create the database and populate it with the seeded example data, simply run the Flask application by starting `app.py`.
+## Database Seeding
 
-   When the application starts, it will automatically create the database and all required tables if they do not already exist. It will also insert the example data provided by the seeding functions.
+Example data is generated through the `seed.py` file.
 
-   You can then log in using either the administrator account or the demo user account:
+The seeding process is automatically executed when the application starts for the first time. The application checks whether the database exists and creates all required tables and example data if necessary.
 
-   **Admin User**
+To modify the seeded data:
 
-   * Email: `admin@financetracker.com`
-   * Password: `admin1234`
+1. Edit the relevant functions in `seed.py`
+2. Delete the existing database tables or database
+3. Restart the application
 
-   **Regular User**
+The database initialization process is handled by the `init_db()` function located in:
 
-   * Email: `demo@financetracker.com`
-   * Password: `demo1234`
+```text
+database/db.py
+```
 
 ---
 
-### How to Insert New Data into the Database
+## Notable Technical Features
 
-1. To add new seed data, use the `seed.py` file located in the project's root directory. This file contains six Python functions that insert data into their respective tables. To add additional data, simply follow the existing patterns used in these functions. All seeding functions are called from the `seed()` function in `app.py`, which runs when the application starts.
+### Authentication and Authorization
 
-2. If you want to apply changes to the seeded data, you must first delete the existing database tables (using the terminal or another database management tool) and then run the application again. This will trigger the `seed()` function, which will recreate the database and execute all seeding functions in `seed.py`.
+* Secure user registration and login
+* Session management using Flask-Login
+* Protected routes and access control
 
-   Alternatively, you can modify or add seed data before running the application for the first time, as the database will initially be empty.
+### Database Design
 
-3. Additional notes:
+* Multiple relational database tables
+* CRUD operations (Create, Read, Update, Delete)
+* Complex SQL queries
+* Structured query separation through dedicated query files
 
-   * Database initialization is handled in `database/db.py` by the `init_db()` function, which is called from `app.py` when the application starts.
+### Frontend Functionality
 
-   * The dashboard uses the external JavaScript library **Chart.js** to display graphs and visualizations. The library is included in the `static` folder and linked through the `base.html` template.
+* Client-side form validation
+* Search and sorting features
+* Responsive design
+* Dynamic updates through AJAX
 
-   * For more closer information about insertions, read through the files ( which use other files, primarily from the `database/queries` folder) that are responsible for inserting data into the database, such as `seed.py` and the query files in `database/queries`.
+### Data Visualization
+
+The application uses Chart.js to display financial data through interactive charts and graphs.
+
+---
+
+## Academic Context
+
+This project was developed as part of the course:
+
+**DAT130 – Databases and Web Programming**
+
+at the **University of Stavanger**.
+
+The project fulfilled all required criteria and additional bonus features and was awarded the grade **A**.
+
+---
+
+
+## License
+
+This project is published for portfolio purposes.
