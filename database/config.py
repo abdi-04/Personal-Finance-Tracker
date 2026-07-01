@@ -1,10 +1,13 @@
-# stores configuration settings for making database connections 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # reads the .env file into environment variables
+
 DB_CONFIG = {
-    "host": "localhost",
-    "user": "financeapp",
-    "password": "MyPassword",
-    "database": "finance_tracker",
+    "host": os.getenv("db_host"),
+    "user": os.getenv("db_user"),
+    "password": os.getenv("db_password"),
+    "database": os.getenv("db_name"),
 }
 
-## A secret key is required by Flask to securely sign session cookies and protect against CSRF attacks.
-SECRET_KEY = "b493a2a0e7208016c0817af0ae3d3537edd9e5c6d64ce450cdf7212596be01c3"
+SECRET_KEY = os.getenv("secret_key")

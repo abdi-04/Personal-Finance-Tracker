@@ -6,7 +6,7 @@ from flask import Flask, render_template, flash, redirect, url_for
 from routes.auth_routes import auth
 from routes.api_routes import api
 from database.db import init_database
-from database.config import SECRET_KEY
+from database.config import secret_key  
 from seed import seed
 
 
@@ -15,7 +15,7 @@ from seed import seed
 app = Flask(__name__)
 
 # Set the secret key for session management and CSRF protection (required by Flask-Login)
-app.secret_key = SECRET_KEY 
+app.secret_key = secret_key
 
 # Create the LoginManager instance that will handle authentication
 login_manager = LoginManager()
