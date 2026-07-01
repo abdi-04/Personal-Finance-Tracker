@@ -140,9 +140,7 @@ The application uses Chart.js to display financial data through interactive char
 
 This project was developed as part of the course:
 
-**DAT130 – Databases and Web Programming**
-
-at the **University of Stavanger**.
+**DAT130 – Databases and Web Programming** at the **University of Stavanger**.
 
 The project fulfilled all required criteria and additional bonus features and was awarded the grade **A**.
 
@@ -151,4 +149,4 @@ The project fulfilled all required criteria and additional bonus features and wa
 
 ## License
 
-This project is published for portfolio purposes.
+This project is published only for portfolio purposes.
