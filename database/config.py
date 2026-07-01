@@ -4,10 +4,10 @@ from dotenv import load_dotenv
 load_dotenv()  # reads the .env file into environment variables
 
 DB_CONFIG = {
-    "host": os.getenv("db_host"),
-    "user": os.getenv("db_user"),
-    "password": os.getenv("db_password"),
-    "database": os.getenv("db_name"),
+    "host": os.getenv("DB_HOST"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+    "database": os.getenv("DB_NAME"),
 }
 
-SECRET_KEY = os.getenv("secret_key")
+SECRET_KEY = os.getenv("SECRET_KEY")
